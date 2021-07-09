@@ -9,7 +9,7 @@ function updateSubtotal(product) {
   let productQuantity = quantity.value;
   let productSubtotal = productPrice * productQuantity;
   subtotal.textContent = productSubtotal;
-  
+  return productSubtotal;
   
 }
 
@@ -21,15 +21,18 @@ function calculateAll() {
   // end of test
 
   // ITERATION 2
+  let sum = 0;
+  const totalField = document.querySelector("#total-value")
   const productArray = document.querySelectorAll('.product')
   for (let i = 0; i < productArray.length; i++) {
-    updateSubtotal(productArray[i])
+    
+    sum +=  updateSubtotal(productArray[i]);
     
   }
 
   
   // ITERATION 3
-  //... your code goes here
+  totalField.innerHTML  = `Total: $${sum}`;
 }
 
 // ITERATION 4
